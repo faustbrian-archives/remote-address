@@ -1,0 +1,48 @@
+{
+	"name": "@kodekeep/remote-address",
+	"version": "1.0.0",
+	"description": "Remote address utilities",
+	"repository": "https://github.com/kodekeep/remote-address",
+	"license": "MPL-2.0",
+	"author": "KodeKeep <hello@kodekeep.com>",
+	"files": [
+		"dist"
+	],
+	"main": "dist/index",
+	"types": "dist/index",
+	"scripts": {
+		"build": "tsc",
+		"build:watch": "tsc -w",
+		"format": "yarn lint && yarn prettier",
+		"lint": "./node_modules/eslint/bin/eslint.js src --ext .ts --fix",
+		"prepublishOnly": "yarn test && yarn build",
+		"prettier": "prettier --write \"./*.{ts,js,json,md}\" \"./**/*.{ts,js,json,md}\"",
+		"test": "jest"
+	},
+	"dependencies": {
+		"default-gateway": "^5.0.5",
+		"ipaddr.js": "^1.9.1",
+		"lodash.flatten": "^4.4.0",
+		"lodash.map": "^4.6.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.7.0",
+		"@types/default-gateway": "^3.0.1",
+		"@types/jest": "^25.1.2",
+		"@types/lodash.flatten": "^4.4.6",
+		"@types/node": "^13.7.1",
+		"@types/prettier": "^1.19.0",
+		"@typescript-eslint/eslint-plugin": "^2.19.2",
+		"@typescript-eslint/parser": "^2.19.2",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.10.0",
+		"eslint-plugin-jest": "^23.7.0",
+		"eslint-plugin-prettier": "^3.1.2",
+		"eslint-plugin-simple-import-sort": "^5.0.1",
+		"jest": "^25.1.0",
+		"jest-extended": "^0.11.5",
+		"prettier": "^1.19.1",
+		"ts-jest": "^25.2.0",
+		"typescript": "^3.7.5"
+	}
+}
