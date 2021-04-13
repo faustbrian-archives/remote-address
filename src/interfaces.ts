@@ -5,5 +5,7 @@ import { networkInterfaces as osInterfaces } from "os";
 export function networkInterfaces(field?: string): any[] {
 	const interfaces = Object.values(osInterfaces());
 
-	return field ? flatten(interfaces.map(i => map(i, field))) : flatten(interfaces);
+	return field
+		? flatten(interfaces.map((i) => map(i, field)))
+		: flatten(interfaces);
 }

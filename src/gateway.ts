@@ -7,7 +7,7 @@ function findAddressByGateway(gateway: string): string | undefined {
 	const gatewayIp = parse(gateway);
 	let ip: string | undefined;
 
-	networkInterfaces().some(addr => {
+	networkInterfaces().some((addr) => {
 		const prefix = parse(addr.netmask).prefixLengthFromSubnetMask();
 		const network = parseCIDR(`${addr.address}/${prefix}`);
 

@@ -13,7 +13,11 @@ const defaultHeaders = [
 	"forwarded",
 ];
 
-function containsAddress(header: string, request: any, headers: string[]): boolean {
+function containsAddress(
+	header: string,
+	request: any,
+	headers: string[]
+): boolean {
 	return headers.includes(header) && isValid(request.headers[header]);
 }
 
@@ -25,8 +29,13 @@ function addressToString(value: string): string | undefined {
 	}
 }
 
-export function discoverFromHeader(header: string, request: any): string | undefined {
-	return isValid(request.headers[header]) ? addressToString(request.headers[header]) : undefined;
+export function discoverFromHeader(
+	header: string,
+	request: any
+): string | undefined {
+	return isValid(request.headers[header])
+		? addressToString(request.headers[header])
+		: undefined;
 }
 
 export function discoverXClientIp(request: any): string | undefined {
@@ -90,7 +99,10 @@ export function discoverForwarded(request: any): string | undefined {
 	return discoverFromHeader("forwarded", request);
 }
 
-export function discover(request: any, headers: string[] = []): string | undefined {
+export function discover(
+	request: any,
+	headers: string[] = []
+): string | undefined {
 	if (!headers.length) {
 		headers = defaultHeaders;
 	}
@@ -146,7 +158,10 @@ export function discover(request: any, headers: string[] = []): string | undefin
 			return addressToString(request.connection.remoteAddress);
 		}
 
-		if (request.connection.socket && isValid(request.connection.socket.remoteAddress)) {
+		if (
+			request.connection.socket &&
+			isValid(request.connection.socket.remoteAddress)
+		) {
 			return addressToString(request.connection.socket.remoteAddress);
 		}
 	}
